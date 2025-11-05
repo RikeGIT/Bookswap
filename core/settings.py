@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'user',
     'rest_framework_simplejwt',
+    'corsheaders',
 ]
 
 # Configuração do Django REST Framework
@@ -65,6 +66,7 @@ SIMPLE_JWT = {
 
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -155,3 +157,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'user.User'
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',
+]
